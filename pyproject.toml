@@ -1,0 +1,19 @@
+[project]
+name = "image-to-pdf"
+version = "1.0.0"
+description = "A simple Streamlit app that converts JPG and PNG images to PDF."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pillow>=11.3.0",
+    "streamlit>=1.47.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
