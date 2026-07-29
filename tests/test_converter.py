@@ -1,10 +1,8 @@
 from io import BytesIO
-from pathlib import Path
-
 import pytest
 from PIL import Image
 
-from converter import ConversionError, image_bytes_to_pdf, pdf_filename, safe_output_path
+from converter import ConversionError, image_bytes_to_pdf, pdf_filename
 
 
 def make_image(image_format: str, mode: str = "RGB") -> bytes:
@@ -32,7 +30,3 @@ def test_rejects_invalid_file() -> None:
 
 def test_keeps_filename_prefix() -> None:
     assert pdf_filename("holiday.photo.JPG") == "holiday.photo.pdf"
-
-
-def test_output_path_drops_parent_components() -> None:
-    assert safe_output_path(Path("/output"), "../photo.pdf") == Path("/output/photo.pdf")

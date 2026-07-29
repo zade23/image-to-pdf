@@ -46,8 +46,3 @@ def image_bytes_to_pdf(data: bytes) -> bytes:
 def pdf_filename(image_filename: str) -> str:
     """Keep the original filename prefix and replace its extension with .pdf."""
     return f"{Path(image_filename).stem}.pdf"
-
-
-def safe_output_path(directory: Path, filename: str) -> Path:
-    """Return a path contained directly inside the selected output directory."""
-    return directory / Path(filename).name
