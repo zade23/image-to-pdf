@@ -5,7 +5,7 @@ if (-not (Test-Path -LiteralPath $launcher)) {
     throw "Launcher not found: $launcher"
 }
 
-$desktop = [Environment]::GetFolderPath('Desktop')
+$desktop = [Environment]::GetFolderPath([Environment+SpecialFolder]::DesktopDirectory)
 # Unicode escapes keep this script compatible with Windows PowerShell 5.1.
 $name = "$([char]0x56FE)$([char]0x7247)$([char]0x8F6C) PDF"
 $shortcutPath = Join-Path $desktop "$name.lnk"
